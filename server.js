@@ -4,10 +4,6 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
 var Articleone={
     title:'aswathybabu',
     heading:'Article-one',
@@ -60,8 +56,11 @@ var  htmltemplate=`
 ';
 return htmlTemplate;
 }
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
 app.get('/article-one',function (req,res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(create Template(Articleone));
     });
  
 app.get('/article-two',function (req,res) {
