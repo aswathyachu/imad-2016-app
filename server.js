@@ -21,35 +21,38 @@ var articleone=
       
     </p>
     }
+    function createTemplate(data)
+    {
+        
  var htmlTemplate=`
  <html>
     <head>
-        
      <title>
-     aswathybabu-one
-     </title>
- </head>
+     ${title}
+    </title>
+    </head>
         <body>
              <div class="container">
         <div>
             <a href='/home'></a>
             </div>
             <h3>
-            $(heading)
+            ${heading}
         </h3>
-    
+    </hr>
         <div>
-            ($date)
+            ${date}
         </div>
 <div>
    
-    $(content)
+    ${content}
 
 </div>
 </div>
 </body>
 </html>
 `;
+}
 app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
