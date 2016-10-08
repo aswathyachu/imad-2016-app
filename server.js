@@ -34,7 +34,8 @@ var htmlTemplate=`
 <body>
              <div class="container">
         <div>
-            <a href='/home'></a>
+            <a href='/home'>
+            </a>
             </div>
             <h3>
             ${heading}
