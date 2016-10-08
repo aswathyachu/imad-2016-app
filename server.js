@@ -28,9 +28,12 @@ var articleone=
 var htmlTemplate=`
  <html>
     <head>
- <title>
-     ${title}
-</title>
+    <title>
+    ${title}
+    </head>
+ 
+    </title>
+
 <body>
              <div class="container">
         <div>
