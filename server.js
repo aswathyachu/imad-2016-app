@@ -28,7 +28,7 @@ var articleone=
 var htmlTemplate=`
  <html>
     <head>
-     <title>
+ <title>
      ${title}
 </title>
 <body>
