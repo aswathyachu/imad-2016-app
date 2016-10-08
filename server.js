@@ -1,8 +1,55 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
 var app = express();
+var articleone=
+{
+    title:'aswathybabu-one',
+    heading:'Article-one',
+    date:'Oct 1,2016'
+    content:
+    `
+    <p>
+        This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
+    
+    </p>
+     <p>
+        This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
+     </p>
+     <p>
+        This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
+      
+    </p>
+    }
+ var htmlTemplate=`
+ <html>
+    <head>
+        
+     <title>
+     aswathybabu-one
+     </title>
+ </head>
+        <body>
+             <div class="container">
+        <div>
+            <a href='/home'></a>
+            </div>
+            <h3>
+            $(heading)
+        </h3>
+    
+        <div>
+            ($date)
+        </div>
+<div>
+   
+    $(content)
+
+</div>
+</div>
+</body>
+</html>
+`;
 app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
