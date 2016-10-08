@@ -7,9 +7,7 @@ var articleone=
     title:'aswathybabu-one',
     heading:'Article-one',
     date:'Oct 1,2016'
-    content:
-    `
-    <p>
+    content:`<p>
         This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
     
     </p>
@@ -20,18 +18,20 @@ var articleone=
         This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
       
     </p>
-    }
+    };
     function createTemplate(data)
     {
-        
- var htmlTemplate=`
+    var title=data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+var htmlTemplate=`
  <html>
     <head>
      <title>
      ${title}
-    </title>
-    </head>
-        <body>
+</title>
+<body>
              <div class="container">
         <div>
             <a href='/home'></a>
@@ -52,13 +52,14 @@ var articleone=
 </body>
 </html>
 `;
+return htmlTemplate;
 }
 app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function (req,res) {
-    res.send(path.join(__dirname,'ui','article-one.html'));
+    res.send(createTemplate(articleone));
     });
  
 app.get('/article-two',function (req,res) {
