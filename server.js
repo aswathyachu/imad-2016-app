@@ -31,8 +31,7 @@ var htmlTemplate=`
     <title>
     ${title}
     </head>
- 
-    </title>
+  </title>
 
 <body>
              <div class="container">
@@ -43,7 +42,6 @@ var htmlTemplate=`
             <h3>
             ${heading}
         </h3>
-    </hr>
         <div>
             ${date}
         </div>
