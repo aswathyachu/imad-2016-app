@@ -20,7 +20,7 @@ var articleone =
         This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
 </p>
 `};
-var htmlTemplate=`
+var htmlTemplate =`
     {
        <html>
     <head>
@@ -37,8 +37,7 @@ var htmlTemplate=`
             <h3>
             ${heading}
         </h3>
-    
-        <div>
+     <div>
         ${date}
         </div>
 <div>
@@ -55,7 +54,6 @@ var htmlTemplate=`
 app.get('/article-one',function (req,res) {
     res.sendFile(path.join(__dirname,'ui'article-one.html'));
     });
- 
 app.get('/article-two',function (req,res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 
@@ -63,7 +61,6 @@ app.get('/article-two',function (req,res) {
 app.get('/article-three',function (req,res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
     });
-
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
