@@ -2,12 +2,14 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var app = express();
-var articleone=
+app.use(morgan('combined'));
+var articleone =
 {
     title:'aswathybabu-one',
     heading:'Article-one',
-    date:'Oct 1,2016'
-    content:`<p>
+    date:'Oct 1,2016',
+    content:`
+    <p>
         This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
     
     </p>
@@ -16,12 +18,38 @@ var articleone=
      </p>
      <p>
         This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.This is the first article of the project.
-      
-    </p>
-    };
-   
-app.use(morgan('combined'));
-app.get('/', function (req, res) {
+</p>
+`};
+var htmlTemplate=`
+    {
+       <html>
+    <head>
+        <title>
+     ${title}
+     </title>
+     <link href="/ui/style.css" rel="stylesheet" />
+       </head>
+        <body>
+      <div class="container">
+        <div>
+            <a href='/home'></a>
+            </div>
+            <h3>
+            ${heading}
+        </h3>
+    
+        <div>
+        ${date}
+        </div>
+<div>
+   ${content}  
+   </div>
+</div>
+</body>
+</html>
+  return htmlTemplate;      
+    }
+ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function (req,res) {
@@ -43,8 +71,6 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-
-
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
