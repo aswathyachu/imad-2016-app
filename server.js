@@ -19,49 +19,13 @@ var articleone=
       
     </p>
     };
-    function createTemplate(data)
-    {
-    var title=data.title;
-    var date=data.date;
-    var heading=data.heading;
-    var content=data.content;
-var htmlTemplate=`
- <html>
-    <head>
-    <title>
-    ${title}
-    </head>
-  </title>
-
-<body>
-             <div class="container">
-        <div>
-            <a href='/home'>
-            </a>
-            </div>
-            <h3>
-            ${heading}
-        </h3>
-        <div>
-            ${date}
-        </div>
-<div>
    
-    ${content}
-
-</div>
-</div>
-</body>
-</html>
-`;
-return htmlTemplate;
-}
 app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function (req,res) {
-    res.send(createTemplate(articleone));
+    res.sendFile(path.join(__dirname,'ui'article-one.html'));
     });
  
 app.get('/article-two',function (req,res) {
